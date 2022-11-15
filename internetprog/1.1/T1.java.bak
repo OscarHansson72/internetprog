@@ -1,0 +1,30 @@
+public class T1 extends Thread{
+	
+	private boolean alive;
+	
+	public T1(){
+		alive = true;
+		start();
+	}
+	
+	@Override
+	public void run(){
+		while(alive){
+			try{
+				sleep(1000);
+			}catch(InterruptedException e){
+				System.err.println("tråd avbröts");
+			}
+			System.out.println("Tråd 1");
+		}
+	}
+	
+	public static void main(String[] args){
+		
+	}
+	
+	public void setAlive(boolean bool){
+		alive = bool;
+	}
+
+}

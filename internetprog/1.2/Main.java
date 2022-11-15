@@ -1,0 +1,37 @@
+public class Main{
+	
+	public Main(){
+		
+	}
+	
+	public static void main(String[] args){
+		
+		Main m = new Main();
+		
+		//Skapa och starta en tråd från klass T1
+		T1 t1 = new T1();
+		//Vänta i 5 sekunder
+		m.waitFiveSeconds();
+		//Skapa och starta en tråd från klass T2
+		T2 t2 = new T2();
+		//Vänta i 5 sekunder
+		m.waitFiveSeconds();
+		//Stoppa tråden från klass T1
+		t1.setAlive(false);
+		//Vänta i 5 sekunder
+		m.waitFiveSeconds();
+		//Stoppa tråden från klass T2
+		t2.setAlive(false);
+	}	
+	
+	public void waitFiveSeconds(){
+		synchronized(this){
+			try{
+				wait(5000);
+			}catch(InterruptedException e){
+				System.err.println("tråd avbröts");
+			}
+		}
+	}
+	
+}	

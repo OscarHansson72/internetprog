@@ -1,0 +1,2 @@
+1.3: fixa javadoc
+2.1.1: fixa DEFAULT_PORT och HOST
